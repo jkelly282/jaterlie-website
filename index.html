@@ -29,7 +29,7 @@
       <div class="arch">
         <p class="hero-intro">We’re getting married</p>
         <h1>James<span class="amp">&amp;</span>Natalie</h1>
-        <p class="hero-date">[Wedding date]</p>
+        <p class="hero-date">22 May 2027</p>
         <p class="hero-place">The Guildhall, Bury St Edmunds</p>
       </div>
     </section>
@@ -39,7 +39,7 @@
       <div class="cols">
         <div>
           <h3>When</h3>
-          <p>[Day, date and year]<br>Ceremony at [time]</p>
+          <p>22, May and 2027<br>Ceremony at 13:00</p>
         </div>
         <div>
           <h3>Where</h3>
@@ -47,7 +47,7 @@
         </div>
         <div>
           <h3>Dress code</h3>
-          <p>[e.g. Smart, with comfortable shoes for the cobbles]</p>
+          <p>Smart - no white dresses please !</p>
         </div>
       </div>
     </section>
@@ -55,11 +55,12 @@
     <section id="day" class="block tint">
       <h2>The day</h2>
       <ol class="timeline">
-        <li><time>[00:00]</time> Guests arrive</li>
-        <li><time>[00:00]</time> Ceremony</li>
+        <li><time>[12:00]</time> Guests arrive</li>
+        <li><time>[13:00]</time> Ceremony</li>
         <li><time>[00:00]</time> Drinks and photographs</li>
-        <li><time>[00:00]</time> Wedding breakfast</li>
-        <li><time>[00:00]</time> Evening celebration</li>
+        <li><time>[15:30]</time> Wedding breakfast</li>
+        <li><time>[17:30]</time> Evening celebration</li>
+        <li><time>[19:30]</time>The Bears</li>
         <li><time>[00:00]</time> Carriages</li>
       </ol>
     </section>
@@ -84,8 +85,44 @@
 
     <section id="rsvp" class="block tint">
       <h2>RSVP</h2>
-      <p class="lead">Online replies are opening soon. Please check back here.</p>
-      <!-- RSVP form goes here once the API is built -->
+      <p class="lead">Please let us know if you can join us. One reply per household is all we need.</p>
+
+      <form id="rsvp-form" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
+        </div>
+
+        <fieldset class="field">
+          <legend>Will you be joining us?</legend>
+          <label class="choice"><input type="radio" name="attending" value="yes" required> Yes, we’d love to</label>
+          <label class="choice"><input type="radio" name="attending" value="no"> Sorry, we can’t make it</label>
+        </fieldset>
+
+        <div class="field" id="guests-field" hidden>
+          <label for="guests">How many of you are coming?</label>
+          <input id="guests" name="guests" type="number" min="1" max="10" value="1">
+        </div>
+
+        <div class="field">
+          <label for="dietary">Dietary requirements <span class="optional">(optional)</span></label>
+          <textarea id="dietary" name="dietary" rows="3" maxlength="500"></textarea>
+        </div>
+
+        <!-- Spam trap: real guests never see or fill this in -->
+        <div class="trap" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" id="rsvp-submit">Send reply</button>
+        <p id="rsvp-status" role="status" aria-live="polite"></p>
+      </form>
     </section>
 
     <section id="photos" class="block">
@@ -100,5 +137,6 @@
     <p>James &amp; Natalie · jaterlie.com</p>
   </footer>
 
+  <script src="rsvp.js"></script>
 </body>
 </html>

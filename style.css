@@ -135,3 +135,42 @@ p { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* RSVP form */
+form { max-width: 34rem; margin: 0 auto; }
+.field { margin: 0 auto 1.25rem; padding: 0; border: 0; }
+label, legend { display: block; margin-bottom: 0.35rem; font-weight: 500; padding: 0; }
+.optional { font-weight: 400; opacity: 0.7; }
+input[type="text"], input[type="email"], input[type="number"], textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  color: var(--flint);
+  background: #fff;
+  border: 1px solid var(--flint);
+  border-radius: 4px;
+}
+input[type="number"] { max-width: 7rem; }
+input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 1px;
+}
+.choice { display: flex; align-items: center; gap: 0.6rem; margin: 0.4rem 0; font-weight: 400; }
+.choice input { width: 1.2rem; height: 1.2rem; accent-color: var(--pink-deep); }
+.trap { position: absolute; left: -9999px; }
+button[type="submit"] {
+  padding: 0.8rem 1.8rem;
+  font: inherit;
+  font-weight: 500;
+  color: var(--chalk);
+  background: var(--flint);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type="submit"]:hover { background: #3a4854; }
+button[type="submit"]:disabled { opacity: 0.6; cursor: wait; }
+button[type="submit"]:focus-visible { outline: 3px solid var(--pink-deep); outline-offset: 2px; }
+#rsvp-status { margin: 1rem 0 0; min-height: 1.5rem; }
+#rsvp-status.error { color: #8a2b1f; }
+#rsvp-status.success { font-family: var(--serif); font-size: 1.6rem; line-height: 1.3; }
