@@ -1,0 +1,137 @@
+:root {
+  --chalk: #f6f5f2;
+  --flint: #26313a;
+  --pink: #d9a294;
+  --pink-deep: #a8584a;
+  --pink-tint: #f1e2dc;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--chalk);
+  color: var(--flint);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--pink-deep); outline-offset: 3px; }
+
+/* Header */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+}
+.monogram {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.site-header nav a { text-decoration: none; font-size: 0.95rem; }
+.site-header nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Hero: a rounded Romanesque arch, nodding to the Guildhall's doorways */
+.hero {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1.25rem 4rem;
+}
+.arch {
+  width: min(100%, 36rem);
+  min-height: 34rem;
+  padding: clamp(4rem, 12vw, 7rem) 1.5rem 3rem;
+  border: 2px solid var(--pink);
+  border-radius: 999px 999px 0 0;
+  background: var(--pink-tint);
+  text-align: center;
+}
+.hero-intro { margin: 0 0 1rem; font-size: 1rem; }
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 13vw, 6.5rem);
+  line-height: 0.95;
+}
+.amp {
+  display: block;
+  font-style: italic;
+  color: var(--pink-deep);
+  font-size: 0.55em;
+  line-height: 1.2;
+}
+.hero-date {
+  margin: 2rem 0 0.25rem;
+  font-family: var(--serif);
+  font-size: 1.75rem;
+}
+.hero-place { margin: 0; }
+
+/* Content blocks */
+.block {
+  padding: 4rem clamp(1.25rem, 5vw, 4rem);
+}
+.block > * { max-width: 60rem; margin-left: auto; margin-right: auto; }
+.tint { background: var(--pink-tint); }
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+}
+h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+p { margin-top: 0; }
+.lead { font-size: 1.15rem; max-width: 36rem; }
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem;
+}
+
+/* Timeline: this one really is a sequence */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  border-left: 2px solid var(--pink);
+}
+.timeline li { padding: 0.5rem 0 0.5rem 1.5rem; }
+.timeline time {
+  display: inline-block;
+  min-width: 5rem;
+  font-weight: 500;
+  color: var(--pink-deep);
+}
+
+.site-footer {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+  border-top: 1px solid var(--pink);
+}
+.site-footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
